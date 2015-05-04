@@ -4,7 +4,11 @@ import java.awt.Point;
 
 public enum LChar {
 
-	a(new Point[]{}, 'a'),
+	a(new Point[]{createPoint(2, 1), createPoint(3, 1), createPoint(4, 1), createPoint(5, 1), 
+				createPoint(6, 2), 
+				createPoint(2, 3), createPoint(3, 3), createPoint(4, 3), createPoint(5, 3), createPoint(6, 3), 
+				createPoint(1, 4), createPoint(5, 4), createPoint(6, 4), 
+				createPoint(2, 5), createPoint(3, 5), createPoint(4, 5), createPoint(6, 5)}, 'a'),
 	b(new Point[]{}, 'b');
 	
 	private Point[] pixelList;
@@ -29,9 +33,9 @@ public enum LChar {
 	
 	public static LChar toLChar(char character) throws UndefinedCharException{
 		
-		LChar[] all = LChar.values();
+		LChar[] allValuesOfLChar = LChar.values();
 		
-		for(LChar lChar : all){
+		for(LChar lChar : allValuesOfLChar){
 			
 			if(character == LChar.toChar(lChar)){
 				
@@ -43,7 +47,7 @@ public enum LChar {
 		throw new UndefinedCharException();
 	}
 	
-	private Point createPoint(int x, int y){
+	private static Point createPoint(int x, int y){
 		
 		return new Point(x, y);
 	}

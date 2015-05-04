@@ -1,5 +1,7 @@
 package tk.adamj57.LChar;
 
+import java.awt.Point;
+
 import com.rngtng.launchpad.LColor;
 import com.rngtng.launchpad.Launchpad;
 
@@ -25,9 +27,24 @@ public class LDisplay {
 		display(character, LColor.HIGH);
 	}
 	
+	public void display(Point[] character){
+		
+		display(character, LColor.HIGH);
+	}
+	
 	public void display(LChar character, int color){
 		
-		//TODO wyœwietlanie
+		Point[] pixelList = character.getPixelList();
+		display(pixelList, color);
+	}
+	
+	public void display(Point[] character, int color){
+		
+		for(Point pixel : character){
+			
+			lp.changeGrid(((int)pixel.getX()), ((int)pixel.getY()), color);
+			
+		}
 	}
 	
 }
