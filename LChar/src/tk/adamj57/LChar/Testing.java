@@ -15,14 +15,6 @@ public class Testing {
 		
 		LDisplay lp = new LDisplay(new Launchpad(new PApplet(), "Launchpad Mini", "Launchpad Mini"));
 		
-		lp.display(LChar.a);
-		
-		try {
-			Thread.sleep(2000L);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		Point[] allEmpty = new Point[64];
 		
@@ -31,27 +23,7 @@ public class Testing {
 			allEmpty[i] = new Point(0, 0);
 		}
 		
-		lp.display(allEmpty);
-		
-		lp.display(LChar.a, LColor.YELLOW_HIGH);
-		
-		try {
-			Thread.sleep(2000L);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		lp.display(allEmpty);
-		
-		lp.display(LChar.a.getPixelList(), LColor.YELLOW_HIGH);
-		
-		try {
-			Thread.sleep(2000L);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		//TODO program daj¹cy mo¿liwoœæ narysowania litery na lp i przekonwertowaniu jej do postaci poleceñ
 		
 		lp.getLp().dispose();
 		
