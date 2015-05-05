@@ -41,7 +41,13 @@ public enum LChar {
 			createPoint(4, 1), createPoint(4, 3), createPoint(4, 5), 
 			createPoint(5, 1), createPoint(5, 3), createPoint(5, 5), 
 			createPoint(6, 2), createPoint(6, 3)}, 
-			'e');
+			'e'),
+	f(new Point[]{
+			createPoint(2, 3), 
+			createPoint(3, 1), createPoint(3, 2), createPoint(3, 3), createPoint(3, 4), createPoint(3, 5), 
+			createPoint(4, 1), createPoint(4, 3)}, 
+			'f');
+	
 	
 	
 	private Point[] pixelList;
