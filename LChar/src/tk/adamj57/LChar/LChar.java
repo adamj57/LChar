@@ -54,7 +54,8 @@ public enum LChar {
 			createPoint(4, 3), createPoint(4, 7), 
 			createPoint(5, 2), createPoint(5, 3), createPoint(5, 4), createPoint(5, 5), createPoint(5, 6)}, 
 			'g'), 
-	h(new Point[]{createPoint(2, 0), createPoint(2, 1), createPoint(2, 2), createPoint(2, 3), createPoint(2, 4), createPoint(2, 5), 
+	h(new Point[]{
+			createPoint(2, 0), createPoint(2, 1), createPoint(2, 2), createPoint(2, 3), createPoint(2, 4), createPoint(2, 5), 
 			createPoint(3, 2), 
 			createPoint(4, 2), 
 			createPoint(5, 3), createPoint(5, 4), createPoint(5, 5)}, 
