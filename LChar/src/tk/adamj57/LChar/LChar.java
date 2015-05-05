@@ -62,10 +62,74 @@ public enum LChar {
 			'h'), 
 	i(new Point[]{
 			createPoint(4, 0), createPoint(4, 2), createPoint(4, 3), createPoint(4, 4), createPoint(4, 5)}, 
-			'i');
+			'i'),
+	j(new Point[]{
+			createPoint(1, 7), 
+			createPoint(2, 7), 
+			createPoint(3, 2), createPoint(3, 7), 
+			createPoint(4, 0), createPoint(4, 2), createPoint(4, 3), createPoint(4, 4), createPoint(4, 5), createPoint(4, 6)}, 
+			'j'), 
+	k(new Point[]{
+			createPoint(2, 1), createPoint(2, 2), createPoint(2, 3), createPoint(2, 4), createPoint(2, 5), 
+			createPoint(3, 4), createPoint(4, 3), createPoint(4, 5), 
+			createPoint(5, 2), createPoint(5, 5)}, 
+			'k'), 
+	l(new Point[]{createPoint(3, 0), createPoint(3, 1), createPoint(3, 2), createPoint(3, 3), createPoint(3, 4), createPoint(3, 5), 
+			createPoint(4, 5)}, 
+			'l'), 
+	m(new Point[]{
+			createPoint(1, 2), createPoint(1, 3), createPoint(1, 4), createPoint(1, 5), 
+			createPoint(2, 2), 
+			createPoint(3, 3), 
+			createPoint(4, 3), 
+			createPoint(5, 2), 
+			createPoint(6, 2), createPoint(6, 3), createPoint(6, 4), createPoint(6, 5)}, 
+			'm'), 
+	n(new Point[]{
+			createPoint(2, 2), createPoint(2, 3), createPoint(2, 4), createPoint(2, 5), 
+			createPoint(3, 3), 
+			createPoint(4, 2), 
+			createPoint(5, 2), 
+			createPoint(6, 2), createPoint(6, 3), createPoint(6, 4), createPoint(6, 5)}, 
+			'n'), 
+	o(new Point[]{
+			createPoint(1, 3), createPoint(1, 4), 
+			createPoint(2, 2), createPoint(2, 5), 
+			createPoint(3, 2), createPoint(3, 5), 
+			createPoint(4, 2), createPoint(4, 5), 
+			createPoint(5, 2), createPoint(5, 5), 
+			createPoint(6, 3), createPoint(6, 4)}, 
+			'o'),
+	p(new Point[]{
+			createPoint(1, 2), createPoint(1, 3), createPoint(1, 4), createPoint(1, 5), createPoint(1, 6), createPoint(1, 7), 
+			createPoint(2, 3), createPoint(2, 5), 
+			createPoint(3, 2), createPoint(3, 5), 
+			createPoint(4, 2), createPoint(4, 5), 
+			createPoint(5, 2), createPoint(5, 5), 
+			createPoint(6, 3), createPoint(6, 4)}, 
+			'p'), 
+	q(new Point[]{
+			createPoint(1, 3), createPoint(1, 4), 
+			createPoint(2, 2), createPoint(2, 5), 
+			createPoint(3, 2), createPoint(3, 5), 
+			createPoint(4, 2), createPoint(4, 5), 
+			createPoint(5, 3), createPoint(5, 5), 
+			createPoint(6, 2), createPoint(6, 3), createPoint(6, 4), createPoint(6, 5), createPoint(6, 6), createPoint(6, 7)}, 
+			'q'), 
 	
-			
-	
+	r(new Point[]{
+			createPoint(2, 2), createPoint(2, 3), createPoint(2, 4), createPoint(2, 5), 
+			createPoint(3, 3), 
+			createPoint(4, 2), 
+			createPoint(5, 2), 
+			createPoint(6, 3)}, 
+			'r'), 
+	s(new Point[]{
+			createPoint(2, 3), createPoint(2, 6), 
+			createPoint(3, 2), createPoint(3, 4), createPoint(3, 6), 
+			createPoint(4, 2), createPoint(4, 4), createPoint(4, 6), 
+			createPoint(5, 2), createPoint(5, 5)}, 
+			's');
 	
 	private Point[] pixelList;
 	private char character;
