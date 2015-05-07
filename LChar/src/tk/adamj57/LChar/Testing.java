@@ -1,9 +1,6 @@
 package tk.adamj57.LChar;
-import java.awt.Point;
-
 import processing.core.PApplet;
 
-import com.rngtng.launchpad.LColor;
 import com.rngtng.launchpad.Launchpad;
 
 
@@ -25,7 +22,7 @@ public class Testing {
 		*/
 		//TODO program daj¹cy mo¿liwoœæ narysowania litery na lp i przekonwertowaniu jej do postaci poleceñ
 		
-		lp.display(LChar.a);
+		lp.display(LChar.one);
 		
 		try {
 			Thread.sleep(2000L);
