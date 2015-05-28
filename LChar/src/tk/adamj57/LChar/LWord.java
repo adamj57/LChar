@@ -18,4 +18,9 @@ public class LWord {
 		}
 		
 	}
+	
+	public LChar[] toArray(){
+		
+		return (LChar[]) LWord.toArray();
+	}
 }

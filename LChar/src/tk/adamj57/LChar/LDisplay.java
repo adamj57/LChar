@@ -57,6 +57,10 @@ public class LDisplay {
 	
 	public void wordDisplay(LWord word){
 		
+		LChar[] LCharWord = word.toArray();
+		
+		wordDisplay(LCharWord);
+		
 	}
 	
 }
