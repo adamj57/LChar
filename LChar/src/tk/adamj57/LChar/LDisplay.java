@@ -1,6 +1,7 @@
 package tk.adamj57.LChar;
 
 import java.awt.Point;
+import java.util.ArrayList;
 
 import com.rngtng.launchpad.LColor;
 import com.rngtng.launchpad.Launchpad;
@@ -49,11 +50,11 @@ public class LDisplay {
 	
 	public void wordDisplay(LChar[] word){
 		
-	}
-	
-	public void wordDisplay(Point[][] word){
+		ArrayList<Point> pointWord;
+		
 		
 	}
+	
 	
 	public void wordDisplay(LWord word){
 		
