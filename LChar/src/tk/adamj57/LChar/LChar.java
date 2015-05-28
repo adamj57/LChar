@@ -443,7 +443,8 @@ public enum LChar {
 			createPoint(4, 1), createPoint(4, 4), createPoint(4, 6), 
 			createPoint(5, 1), createPoint(5, 4), createPoint(5, 6), 
 			createPoint(6, 2), createPoint(6, 3), createPoint(6, 4), createPoint(6, 5)}, 
-			'9');
+			'9'), 
+	space(new Point[]{}, ' ');
 	
 			
 			

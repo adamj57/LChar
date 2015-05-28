@@ -47,4 +47,16 @@ public class LDisplay {
 		}
 	}
 	
+	public void wordDisplay(LChar[] word){
+		
+	}
+	
+	public void wordDisplay(Point[][] word){
+		
+	}
+	
+	public void wordDisplay(LWord word){
+		
+	}
+	
 }
