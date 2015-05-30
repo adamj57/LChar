@@ -42,7 +42,7 @@ public class LDisplay {
 		
 		for(Point pixel : character){
 			
-			lp.changeGrid(((int)pixel.getX()), ((int)pixel.getY()), color);
+			lp.changeGrid(((int) pixel.getX()), ((int) pixel.getY()), color);
 			
 		}
 	}

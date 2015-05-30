@@ -485,6 +485,21 @@ public enum LChar {
 		throw new UndefinedCharException();
 	}
 	
+	public static LChar[] toLChar(String stringToConvert) throws UndefinedCharException{
+		
+		int stringLength = stringToConvert.length();
+		
+		LChar[] lCharedString = new LChar[stringLength];
+		
+		for(int i = 0; i < stringLength; i++){
+			
+			lCharedString[i] = LChar.toLChar(stringToConvert.charAt(i));
+		}
+		
+		return lCharedString;
+		
+	}
+	
 	private static Point createPoint(int x, int y){
 		
 		return new Point(x, y);
