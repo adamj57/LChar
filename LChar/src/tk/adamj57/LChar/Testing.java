@@ -21,24 +21,18 @@ public class Testing {
 		
 		int i = 0;
 			
-			for (int j = 0; j<8; j++){
-				
-				for (int k = 0; k<8; k++){
-					
-					allEmpty[i] = new Point(k, j);
-					i++;
-				}
-			}
+		for (int j = 0; j<8; j++){
 			
-
+			for (int k = 0; k<8; k++){
+				
+				allEmpty[i] = new Point(k, j);
+				i++;
+			}
+		}
+			
+		lp.display(LChar.toLChar("Test"));
 		
-		
-			lp.getLp().dispose();
-		
-	
-	
-		
-		
+		lp.getLp().dispose();
 		
 	}
 }

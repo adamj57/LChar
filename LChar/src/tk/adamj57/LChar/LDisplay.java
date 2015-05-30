@@ -103,12 +103,12 @@ public class LDisplay {
 	
 	public void display(Point[][] stringToDisplay, long millis, int color){
 		
-		Point[] displayableString = convertToDisplayablePoint(stringToDisplay);
+		Point[] displayableString = convertToDisplayableString(stringToDisplay);
 		
 		//TODO display method
 	}
 	
-	private Point[] convertToDisplayablePoint(Point[][] stringToConvert){
+	private Point[] convertToDisplayableString(Point[][] stringToConvert){
 		
 		ArrayList<Point> convertedString = new ArrayList<Point>();
 		
@@ -131,7 +131,8 @@ public class LDisplay {
 			i++;
 			
 		}
-		
+		//TEMP TESTING, PLEASE READ ALONG ;)
+		System.out.println(convertedString.toString());
 		
 		return convertedString.toArray(new Point[]{});
 	}
