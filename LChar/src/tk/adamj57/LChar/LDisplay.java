@@ -9,6 +9,10 @@ public class LDisplay {
 
 	private Launchpad lp;
 	
+	///
+	///		LAUNCHPAD MODIFICATION
+	///
+	
 	public LDisplay(Launchpad lp)
 	{
 		this.setLp(lp);
@@ -21,6 +25,10 @@ public class LDisplay {
 	public void setLp(Launchpad lp) {
 		this.lp = lp;
 	}
+	
+	///
+	///		DISPLAY ONE CHAR
+	///
 	
 	public void display(LChar character){
 		
@@ -47,6 +55,104 @@ public class LDisplay {
 		}
 	}
 	
+	///
+	///		DISPLAY STRING WITH SCROLLING
+	///
+	
+	///
+	/// 	LCHAR[] METHODS
+	///
+	
+	public void display(LChar[] stringToDisplay, long millis, int color){
+		
+		Point[][] stringToDisplayConverted = new Point[stringToDisplay.length][];
+		
+		int i = 0;
+		for(LChar lchar : stringToDisplay){
+			
+			stringToDisplayConverted[i] = lchar.getPixelList();
+			
+			i++;
+		}
+		
+		display(stringToDisplayConverted, millis, color);
+		
+	}
+	
+	public void display(LChar[] stringToDisplay, long millis){
+		
+		display(stringToDisplay, millis, LColor.HIGH);
+		
+	}
+	
+	public void display(LChar[] stringToDisplay, int color){
+		
+		display(stringToDisplay, 100, color);
+		
+	}
+	
+	public void display(LChar[] stringToDisplay){
+		
+		display(stringToDisplay, 100, LColor.HIGH);
+		
+	}
+	
+	///
+	///		POINT[][] METHODS
+	///
+	
+	public void display(Point[][] stringToDisplay, long millis, int color){
+		
+		Point[] displayableString = convertToDisplayablePoint(stringToDisplay);
+		
+		//TODO display method
+	}
+	
+	private Point[] convertToDisplayablePoint(Point[][] stringToConvert){
+		
+		ArrayList<Point> convertedString = new ArrayList<Point>();
+		
+		int i = 1;
+		for(Point[] character : stringToConvert){
+			
+			if(character == new Point[]{}){
+				
+				i++;
+				continue;
+				
+			}
+			for(Point point : character){
+				
+				point.setLocation(point.getX() + (i*8), point.getY());
+				
+				convertedString.add(point);
+			}
+			
+			i++;
+			
+		}
+		
+		
+		return convertedString.toArray(new Point[]{});
+	}
+	
+	public void display(Point[][] stringToDisplay, long millis){
+		
+		display(stringToDisplay, millis, LColor.HIGH);
+		
+	}
+	
+	public void display(Point[][] stringToDisplay, int color){
+		
+		display(stringToDisplay, 100, color);
+		
+	}
+	
+	public void display(Point[][] stringToDisplay){
+		
+		display(stringToDisplay, 100, LColor.HIGH);
+		
+	}
 	
 	
 	
