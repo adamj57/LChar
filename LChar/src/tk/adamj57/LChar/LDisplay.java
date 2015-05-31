@@ -202,20 +202,20 @@ public class LDisplay {
 			
 			display(allEmpty, LColor.GREEN_OFF);
 			
-			for(int i1 = 0; i1 < arrayToScroll.length; i1++){
+			for(int j = 0; j < arrayToScroll.length; j++){
 			
-				Point changed = arrayToScroll[i1];
+				Point changed = arrayToScroll[j];
 			
 				changed.setLocation(changed.getX() - 1, changed.getY());
 			
-				arrayToScroll[i1] = changed;
+				arrayToScroll[j] = changed;
 			}
 			
 			hasPixelsToDisplay = false;
 		
-			for(int i1 = 0; i1 < arrayToScroll.length; i1++){
+			for(int j = 0; j < arrayToScroll.length; j++){
 			
-				if(arrayToScroll[i1].getX() > -1){
+				if(arrayToScroll[j].getX() > -1){
 				
 					hasPixelsToDisplay = true;
 					
