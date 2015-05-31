@@ -138,27 +138,30 @@ public class LDisplay {
 		
 		ArrayList<Point> convertedArray = new ArrayList<Point>();
 		
+		
 		int i = 1;
 		for(Point[] character : arrayToConvert){
 			
-			if(character == new Point[]{}){
+			if(character == LChar.space.getPixelList()){
 				
-				i++;
-				continue;
+				System.out.println("Wykryto spacje!");
 				
-			}
-			for(Point point : character){
+			}else{
 				
-				point.setLocation(point.getX() + (i*8), point.getY());
+				for(Point point : character){
+					
+					point.setLocation(point.getX() + (i*8), point.getY());
+					
+					convertedArray.add(point);
+				}
 				
-				convertedArray.add(point);
 			}
 			
 			i++;
 			
 		}
 		//TEMP TESTING, PLEASE READ ALONG ;)
-		System.out.println(convertedArray.toString());
+		//System.out.println(convertedArray.toString());
 		
 		return convertedArray.toArray(new Point[]{});
 	}
@@ -186,12 +189,16 @@ public class LDisplay {
 		
 			for(Point pixel : arrayToScroll){
 			
-				if(pixel.getX() > -1 && pixel.getX() < 8){
+				if(pixel.getX() >= 0 && pixel.getX() <= 7){
 				
 					frameToDisplay.add(pixel);
 				
+					//System.out.println(pixel.toString());
 				}
 			}
+			
+			//System.out.println(frameToDisplay.toString());
+			
 			display(frameToDisplay.toArray(new Point[0]), color);
 		
 			try {
@@ -201,6 +208,8 @@ public class LDisplay {
 			}
 			
 			display(allEmpty, LColor.GREEN_OFF);
+			
+			frameToDisplay.clear();
 			
 			for(int j = 0; j < arrayToScroll.length; j++){
 			
