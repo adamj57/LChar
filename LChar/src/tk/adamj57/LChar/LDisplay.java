@@ -2,6 +2,7 @@ package tk.adamj57.LChar;
 
 import java.awt.Point;
 import java.util.ArrayList;
+
 import com.rngtng.launchpad.LColor;
 import com.rngtng.launchpad.Launchpad;
 
@@ -63,37 +64,37 @@ public class LDisplay {
 	/// 	LCHAR[] METHODS
 	///
 	
-	public void display(LChar[] stringToDisplay, long millis, int color){
+	public void display(LChar[] arrayToDisplay, long millis, int color){
 		
-		Point[][] stringToDisplayConverted = new Point[stringToDisplay.length][];
+		Point[][] arrayToDisplayConverted = new Point[arrayToDisplay.length][];
 		
 		int i = 0;
-		for(LChar lchar : stringToDisplay){
+		for(LChar lchar : arrayToDisplay){
 			
-			stringToDisplayConverted[i] = lchar.getPixelList();
+			arrayToDisplayConverted[i] = lchar.getPixelList();
 			
 			i++;
 		}
 		
-		display(stringToDisplayConverted, millis, color);
+		display(arrayToDisplayConverted, millis, color);
 		
 	}
 	
-	public void display(LChar[] stringToDisplay, long millis){
+	public void display(LChar[] arrayToDisplay, long millis){
 		
-		display(stringToDisplay, millis, LColor.HIGH);
-		
-	}
-	
-	public void display(LChar[] stringToDisplay, int color){
-		
-		display(stringToDisplay, 100, color);
+		display(arrayToDisplay, millis, LColor.HIGH);
 		
 	}
 	
-	public void display(LChar[] stringToDisplay){
+	public void display(LChar[] arrayToDisplay, int color){
 		
-		display(stringToDisplay, 100, LColor.HIGH);
+		display(arrayToDisplay, 100, color);
+		
+	}
+	
+	public void display(LChar[] arrayToDisplay){
+		
+		display(arrayToDisplay, 100, LColor.HIGH);
 		
 	}
 	
@@ -101,19 +102,44 @@ public class LDisplay {
 	///		POINT[][] METHODS
 	///
 	
-	public void display(Point[][] stringToDisplay, long millis, int color){
+	public void display(Point[][] arrayToDisplay, long millis, int color){
 		
-		Point[] displayableString = convertToDisplayableString(stringToDisplay);
+		Point[] displayableArray = convertToDisplayableArray(arrayToDisplay);
 		
+		scrollArray(displayableArray, millis, color);
 		//TODO display method
 	}
+
 	
-	private Point[] convertToDisplayableString(Point[][] stringToConvert){
+	public void display(Point[][] arrayToDisplay, long millis){
 		
-		ArrayList<Point> convertedString = new ArrayList<Point>();
+		display(arrayToDisplay, millis, LColor.HIGH);
+		
+	}
+	
+	public void display(Point[][] arrayToDisplay, int color){
+		
+		display(arrayToDisplay, 100, color);
+		
+	}
+	
+	public void display(Point[][] arrayToDisplay){
+		
+		display(arrayToDisplay, 100, LColor.HIGH);
+		
+	}
+	
+	
+	///
+	///		HELPING METHODS
+	///
+	
+	private Point[] convertToDisplayableArray(Point[][] arrayToConvert){
+		
+		ArrayList<Point> convertedArray = new ArrayList<Point>();
 		
 		int i = 1;
-		for(Point[] character : stringToConvert){
+		for(Point[] character : arrayToConvert){
 			
 			if(character == new Point[]{}){
 				
@@ -125,36 +151,65 @@ public class LDisplay {
 				
 				point.setLocation(point.getX() + (i*8), point.getY());
 				
-				convertedString.add(point);
+				convertedArray.add(point);
 			}
 			
 			i++;
 			
 		}
 		//TEMP TESTING, PLEASE READ ALONG ;)
-		System.out.println(convertedString.toString());
+		System.out.println(convertedArray.toString());
 		
-		return convertedString.toArray(new Point[]{});
+		return convertedArray.toArray(new Point[]{});
 	}
 	
-	public void display(Point[][] stringToDisplay, long millis){
+	private void scrollArray(Point[] arrayToScroll, long millis, int color){
 		
-		display(stringToDisplay, millis, LColor.HIGH);
+		ArrayList<Point> frameToDisplay = new ArrayList<Point>();
+		
+		boolean hasPixelsToDisplay = true;
+		
+		while(hasPixelsToDisplay){	
+		
+			for(Point pixel : arrayToScroll){
+			
+				if(pixel.getX() > -1 && pixel.getX() < 8){
+				
+					frameToDisplay.add(pixel);
+				
+				}
+			}
+			display(frameToDisplay.toArray(new Point[0]), color);
+		
+			try {
+				Thread.sleep(millis);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			for(int i = 0; i < arrayToScroll.length; i++){
+			
+				Point changed = arrayToScroll[i];
+			
+				changed.setLocation(changed.getX() - 1, changed.getY());
+			
+				arrayToScroll[i] = changed;
+			}
+			
+			hasPixelsToDisplay = false;
+		
+			for(int i = 0; i < arrayToScroll.length; i++){
+			
+				if(arrayToScroll[i].getX() > -1){
+				
+					hasPixelsToDisplay = true;
+					
+				}
+			}
+			
+		}
 		
 	}
-	
-	public void display(Point[][] stringToDisplay, int color){
-		
-		display(stringToDisplay, 100, color);
-		
-	}
-	
-	public void display(Point[][] stringToDisplay){
-		
-		display(stringToDisplay, 100, LColor.HIGH);
-		
-	}
-	
-	
-	
 }
+	
+
