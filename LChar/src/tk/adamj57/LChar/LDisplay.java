@@ -167,6 +167,19 @@ public class LDisplay {
 		
 		ArrayList<Point> frameToDisplay = new ArrayList<Point>();
 		
+		Point[] allEmpty = new Point[64];
+		
+		int i = 0;
+			
+		for (int j = 0; j<8; j++){
+			
+			for (int k = 0; k<8; k++){
+				
+				allEmpty[i] = new Point(k, j);
+				i++;
+			}
+		}
+		
 		boolean hasPixelsToDisplay = true;
 		
 		while(hasPixelsToDisplay){	
@@ -187,20 +200,22 @@ public class LDisplay {
 				e.printStackTrace();
 			}
 			
-			for(int i = 0; i < arrayToScroll.length; i++){
+			display(allEmpty, LColor.GREEN_OFF);
 			
-				Point changed = arrayToScroll[i];
+			for(int i1 = 0; i1 < arrayToScroll.length; i1++){
+			
+				Point changed = arrayToScroll[i1];
 			
 				changed.setLocation(changed.getX() - 1, changed.getY());
 			
-				arrayToScroll[i] = changed;
+				arrayToScroll[i1] = changed;
 			}
 			
 			hasPixelsToDisplay = false;
 		
-			for(int i = 0; i < arrayToScroll.length; i++){
+			for(int i1 = 0; i1 < arrayToScroll.length; i1++){
 			
-				if(arrayToScroll[i].getX() > -1){
+				if(arrayToScroll[i1].getX() > -1){
 				
 					hasPixelsToDisplay = true;
 					
