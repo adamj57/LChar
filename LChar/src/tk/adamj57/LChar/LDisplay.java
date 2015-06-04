@@ -198,6 +198,7 @@ public class LDisplay {
 			}
 			
 			//System.out.println(frameToDisplay.toString());
+			display(allEmpty, LColor.GREEN_OFF);
 			
 			display(frameToDisplay.toArray(new Point[0]), color);
 		
@@ -207,7 +208,7 @@ public class LDisplay {
 				e.printStackTrace();
 			}
 			
-			display(allEmpty, LColor.GREEN_OFF);
+			
 			
 			frameToDisplay.clear();
 			
