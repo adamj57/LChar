@@ -444,7 +444,85 @@ public enum LChar {
 			createPoint(5, 1), createPoint(5, 4), createPoint(5, 6), 
 			createPoint(6, 2), createPoint(6, 3), createPoint(6, 4), createPoint(6, 5)}, 
 			'9'), 
-	space(new Point[]{}, ' ');
+	space(new Point[]{
+			}, 
+			' '), 
+	exclamMark(new Point[]{
+			createPoint(4, 0), createPoint(4, 1), createPoint(4, 2), createPoint(4, 3), createPoint(4, 5)}, 
+			'!'), 
+	quoteMark(new Point[]{
+			createPoint(2, 0), createPoint(2, 1), 
+			createPoint(4, 0), createPoint(4, 1)}, 
+			'\"'), 
+	hash(new Point[]{
+			createPoint(1, 2), createPoint(1, 4), 
+			createPoint(2, 1), createPoint(2, 2), createPoint(2, 3), createPoint(2, 4), createPoint(2, 5), 
+			createPoint(3, 2), createPoint(3, 4), 
+			createPoint(4, 1), createPoint(4, 2), createPoint(4, 3), createPoint(4, 4), createPoint(4, 5), 
+			createPoint(5, 2), createPoint(5, 4)}, 
+			'#'),
+	dollar(new Point[]{
+			createPoint(2, 2), createPoint(2, 5), 
+			createPoint(3, 1), createPoint(3, 3), createPoint(3, 5), 
+			createPoint(4, 0), createPoint(4, 1), createPoint(4, 2), createPoint(4, 3), createPoint(4, 4), createPoint(4, 5), createPoint(4, 6), 
+			createPoint(5, 1), createPoint(5, 3), createPoint(5, 5), 
+			createPoint(6, 1), createPoint(6, 4)}, 
+			'$'), 
+	percent(new Point[]{
+			createPoint(0, 1), 
+			createPoint(1, 0), createPoint(1, 2), 
+			createPoint(2, 0), createPoint(2, 2), createPoint(2, 4), 
+			createPoint(3, 1), createPoint(3, 3), 
+			createPoint(4, 2), createPoint(4, 4), 
+			createPoint(5, 1), createPoint(5, 3), createPoint(5, 5), 
+			createPoint(6, 3), createPoint(6, 5), 
+			createPoint(7, 4)}, 
+			'%'), 
+	ampersand(new Point[]{
+			createPoint(1, 1), createPoint(1, 2), createPoint(1, 4), 
+			createPoint(2, 0), createPoint(2, 3), createPoint(2, 5), 
+			createPoint(3, 0), createPoint(3, 3), createPoint(3, 5), 
+			createPoint(4, 0), createPoint(4, 4), 
+			createPoint(5, 4), 
+			createPoint(6, 3), createPoint(6, 5)}, 
+			'&'), 
+	apostrophe(new Point[]{
+			createPoint(4, 0), createPoint(4, 1)}, 
+			'\''), 
+	leftBracket(new Point[]{
+			createPoint(2, 2), createPoint(2, 3), 
+			createPoint(3, 1), createPoint(3, 4), 
+			createPoint(4, 0), createPoint(4, 5)}, 
+			'('), 
+	rightBracket(new Point[]{
+			createPoint(3, 0), createPoint(3, 5), 
+			createPoint(4, 1), createPoint(4, 4), 
+			createPoint(5, 2), createPoint(5, 3)}, 
+			')'), 
+	star(new Point[]{
+			createPoint(2, 0), createPoint(2, 2), createPoint(2, 4), 
+			createPoint(3, 1), createPoint(3, 2), createPoint(3, 3), 
+			createPoint(4, 0), createPoint(4, 1), createPoint(4, 2), createPoint(4, 3), createPoint(4, 4), 
+			createPoint(5, 1), createPoint(5, 2), createPoint(5, 3), 
+			createPoint(6, 0), createPoint(6, 2), createPoint(6, 4)}, 
+			'*'), 
+	plus(new Point[]{
+			createPoint(2, 3), 
+			createPoint(3, 3),
+			createPoint(4, 1), createPoint(4, 2), createPoint(4, 3), createPoint(4, 4), createPoint(4, 5), 
+			createPoint(5, 3), 
+			createPoint(6, 3)}, 
+			'+'), 
+	comma(new Point[]{
+			createPoint(3, 6), 
+			createPoint(4, 5)}, 
+			','), 
+	minus(new Point[]{
+			createPoint(3, 3), 
+			createPoint(4, 3), 
+			createPoint(5, 3)}, 
+			'-');
+	
 	
 			
 			
