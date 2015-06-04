@@ -107,7 +107,6 @@ public class LDisplay {
 		Point[] displayableArray = convertToDisplayableArray(arrayToDisplay);
 		
 		scrollArray(displayableArray, millis, color);
-		//TODO display method
 	}
 
 	
@@ -160,8 +159,7 @@ public class LDisplay {
 			i++;
 			
 		}
-		//TEMP TESTING, PLEASE READ ALONG ;)
-		//System.out.println(convertedArray.toString());
+		
 		
 		return convertedArray.toArray(new Point[]{});
 	}
@@ -192,12 +190,9 @@ public class LDisplay {
 				if(pixel.getX() >= 0 && pixel.getX() <= 7){
 				
 					frameToDisplay.add(pixel);
-				
-					//System.out.println(pixel.toString());
 				}
 			}
 			
-			//System.out.println(frameToDisplay.toString());
 			display(allEmpty, LColor.GREEN_OFF);
 			
 			display(frameToDisplay.toArray(new Point[0]), color);

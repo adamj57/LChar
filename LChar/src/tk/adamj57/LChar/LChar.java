@@ -495,8 +495,6 @@ public enum LChar {
 			
 			lCharedString[i] = LChar.toLChar(stringToConvert.charAt(i));
 			
-			//TEMP TESTING, PLEASE READ ALONG ;)
-			System.out.println(LChar.toLChar(stringToConvert.charAt(i)));
 		}
 		
 		return lCharedString;
