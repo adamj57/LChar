@@ -137,21 +137,26 @@ public class LDisplay {
 		
 		ArrayList<Point> convertedArray = new ArrayList<Point>();
 		
+		Point[][] copyOfArrayToConvert = arrayToConvert.clone();
 		
 		int i = 1;
-		for(Point[] character : arrayToConvert){
+		for(Point[] character : copyOfArrayToConvert){
 			
-			if(character == LChar.space.getPixelList()){
+			Point [] copyOfCharacter = character.clone();
+			
+			if(copyOfCharacter == LChar.space.getPixelList()){
 				
-				System.out.println("Wykryto spacje!");
+				System.out.println("Wykryto spacje!"); //debug
 				
 			}else{
 				
-				for(Point point : character){
+				for(Point point : copyOfCharacter){
 					
-					point.setLocation(point.getX() + (i*8), point.getY());
+					Point copyOfPoint = (Point) point.clone();
 					
-					convertedArray.add(point);
+					copyOfPoint.setLocation(copyOfPoint.getX() + (i*8), copyOfPoint.getY());
+					
+					convertedArray.add(copyOfPoint);
 				}
 				
 			}
@@ -195,7 +200,12 @@ public class LDisplay {
 			
 			display(allEmpty, LColor.GREEN_OFF);
 			
-			display(frameToDisplay.toArray(new Point[0]), color);
+			if(!frameToDisplay.isEmpty()){
+				
+				display(frameToDisplay.toArray(new Point[0]), color);
+				
+			}
+			
 		
 			try {
 				Thread.sleep(millis);
