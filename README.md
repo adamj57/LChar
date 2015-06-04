@@ -9,7 +9,7 @@ Requirements
 
 What it does?
 --------------
-Basicly, this lib provides character and (in future) word display methods. Words will be animated from right to left with changeable speed.
+Basicly, this lib provides character and string display methods.
 
 Usage
 --------------
@@ -31,7 +31,7 @@ To display one letter ('a') on launchpad LEDs for 2 secs, simply do this:
 		    //create LDisplay instance, it requires Launchpad Object, which is referenced in rngtng\Launchpad
 		    LDisplay lp = new LDisplay(new Launchpad(new PApplet(), "Launchpad Mini", "Launchpad Mini"));
 		
-		    lp.display(LChar.a, LColor.YELLOW_HIGH);
+		    lp.display(LChar.toLChar('a'), LColor.YELLOW_HIGH);
 		
 		    try {
 		    	Thread.sleep(2000L);
@@ -60,4 +60,29 @@ where pixelList is Point array containing x's and y's to display. Sample array:
     new Point(7, 0), new Point(7, 1), new Point(7, 2), new Point(7, 4)};
   
 
-There is also some conversion methods between char and LChar, but this is gonna be useful when i develop word display method.
+When you have to display a string (for example "Test"), do that:
+
+	lp.display(LChar.toLChar("Test")); //This will display "Test" scrolled to left with red color and 1 frame per 100 millis
+
+Or, when you need greater/smaller speed, do that:
+
+	lp.display(LChar.toLChar("Test"), 25L); //This will display "Test" scrolled to left with red color and 1 frame per 25 millis
+	
+Or, when you need different color:
+
+	lp.display(LChar.toLChar("Test"), LColor.GREEN_HIGH); //This will display "Test" scrolled to left with green color and 1 frame per 100 millis
+	
+Or, lastly, when you need both of color and different speed:
+
+	lp.display(LChar.toLChar("Test"), 25L, LColor.GREEN_HIGH); //This will display "Test" scrolled to left with green color and 1 frame per 25 millis
+	
+Also, if you have to display char or picture that isn't in LChar, you have to make Point[][] array with Point[] arrays containing chars/images to display in order:
+
+	Point[][] string = new Point[][]{
+								smile, whateverYouWant};
+	lp.display(string);
+	
+Or, with including some LChars:
+
+	Point[][] string = new Point[][]{
+								LChar.toLChar('a').getPixelList(), LChar.toLChar('b').getPixelList(), LChar.toLChar('c').getPixelList(), LChar.toLchar(' ').getPixelList(), smile};
