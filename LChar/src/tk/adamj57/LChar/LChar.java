@@ -380,7 +380,15 @@ public enum LChar {
 			createPoint(3, 2), createPoint(3, 6), 
 			createPoint(4, 1), createPoint(4, 2), createPoint(4, 3), createPoint(4, 4), createPoint(4, 5), createPoint(4, 6), 
 			createPoint(5, 6)}, 
-			'1'), 
+			'1'),
+	zero(new Point[]{
+			createPoint(1, 3), createPoint(1, 4), 
+			createPoint(2, 2), createPoint(2, 5), 
+			createPoint(3, 1), createPoint(3, 6), 
+			createPoint(4, 1), createPoint(4, 6), 
+			createPoint(5, 2), createPoint(5, 5), 
+			createPoint(6, 3), createPoint(6, 4)}, 
+			'0'), 
 	two(new Point[]{
 			createPoint(1, 2), createPoint(1, 6), 
 			createPoint(2, 1), createPoint(2, 5), createPoint(2, 6), 
@@ -521,7 +529,68 @@ public enum LChar {
 			createPoint(3, 3), 
 			createPoint(4, 3), 
 			createPoint(5, 3)}, 
-			'-');
+			'-'),
+	fullstop(new Point[]{
+			createPoint(4, 6)}, 
+			'.'), 
+	slash(new Point[]{
+			createPoint(1, 6), 
+			createPoint(2, 5), 
+			createPoint(3, 4), 
+			createPoint(4, 3), 
+			createPoint(5, 2), 
+			createPoint(6, 1)}, 
+			'/'), 
+	colon(new Point[]{
+			createPoint(4, 3), 
+			createPoint(4, 6)}, 
+			':'), 
+	semicolon(new Point[]{
+			createPoint(3, 7), 
+			createPoint(4, 3), createPoint(4, 6)}, 
+			';'), 
+	less_than(new Point[]{
+			createPoint(1, 3), 
+			createPoint(2, 3), 
+			createPoint(3, 2), createPoint(3, 4), 
+			createPoint(4, 2), createPoint(4, 4), 
+			createPoint(5, 1), createPoint(5, 5), 
+			createPoint(6, 1), createPoint(6, 5)}, 
+			'<'), 
+	equals(new Point[]{
+			createPoint(1, 2), createPoint(1, 4), 
+			createPoint(2, 2), createPoint(2, 4), 
+			createPoint(3, 2), createPoint(3, 4), 
+			createPoint(4, 2), createPoint(4, 4), 
+			createPoint(5, 2), createPoint(5, 4), 
+			createPoint(6, 2), createPoint(6, 4)}, 
+			'='), 
+	greater_than(new Point[]{
+			createPoint(1, 1), createPoint(1, 5), 
+			createPoint(2, 1), createPoint(2, 5), 
+			createPoint(3, 2), createPoint(3, 4), 
+			createPoint(4, 2), createPoint(4, 4), 
+			createPoint(5, 3), 
+			createPoint(6, 3)}, 
+			'>'), 
+	question_mark(new Point[]{
+			createPoint(1, 2), 
+			createPoint(2, 1), 
+			createPoint(3, 1), 
+			createPoint(4, 1), createPoint(4, 4), createPoint(4, 6), 
+			createPoint(5, 1), createPoint(5, 4), 
+			createPoint(6, 2), createPoint(6, 3)}, 
+			'?'), 
+	at_sign(new Point[]{
+			createPoint(1, 3), createPoint(1, 4), 
+			createPoint(2, 2), createPoint(2, 5), 
+			createPoint(3, 1), createPoint(3, 6), 
+			createPoint(4, 1), createPoint(4, 3), createPoint(4, 4), createPoint(4, 5), createPoint(4, 7), 
+			createPoint(5, 1), createPoint(5, 3), createPoint(5, 5), createPoint(5, 7), 
+			createPoint(6, 1), createPoint(6, 2), createPoint(6, 3), createPoint(6, 4), createPoint(6, 5), createPoint(6, 7)}, 
+			'@');
+	
+	
 	
 	
 			
