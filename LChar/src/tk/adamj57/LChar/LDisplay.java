@@ -106,10 +106,13 @@ public class LDisplay {
 		
 		Point[] displayableArray = convertToDisplayableArray(arrayToDisplay);
 		
-		scrollArray(displayableArray, millis, color);
+		
+		scroll(displayableArray, millis, color);
 	}
 
 	
+	
+
 	public void display(Point[][] arrayToDisplay, long millis){
 		
 		display(arrayToDisplay, millis, LColor.HIGH);
@@ -169,14 +172,16 @@ public class LDisplay {
 		return convertedArray.toArray(new Point[]{});
 	}
 	
-	private void scrollArray(Point[] arrayToScroll, long millis, int color){
+	
+	private void scroll(Point[] arrayToScroll,  long millis, int color){
+		
 		
 		ArrayList<Point> frameToDisplay = new ArrayList<Point>();
 		
 		Point[] allEmpty = new Point[64];
 		
 		int i = 0;
-			
+		
 		for (int j = 0; j<8; j++){
 			
 			for (int k = 0; k<8; k++){
@@ -185,6 +190,7 @@ public class LDisplay {
 				i++;
 			}
 		}
+		
 		
 		boolean hasPixelsToDisplay = true;
 		
@@ -197,6 +203,7 @@ public class LDisplay {
 					frameToDisplay.add(pixel);
 				}
 			}
+			
 			
 			display(allEmpty, LColor.GREEN_OFF);
 			
@@ -216,6 +223,8 @@ public class LDisplay {
 			
 			
 			frameToDisplay.clear();
+			
+			
 			
 			for(int j = 0; j < arrayToScroll.length; j++){
 			
@@ -238,7 +247,7 @@ public class LDisplay {
 			}
 			
 		}
-		
+	
 	}
 }
 	
