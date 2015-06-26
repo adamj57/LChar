@@ -146,7 +146,7 @@ public class LDisplay {
 			}
 		}
 		
-		display(allEmpty);
+		display(allEmpty, LColor.GREEN_OFF);
 	}
 	
 	
