@@ -131,6 +131,24 @@ public class LDisplay {
 		
 	}
 	
+	public void clear(){
+		
+		Point[] allEmpty = new Point[64];
+		
+		int i = 0;
+		
+		for (int j = 0; j<8; j++){
+			
+			for (int k = 0; k<8; k++){
+				
+				allEmpty[i] = new Point(k, j);
+				i++;
+			}
+		}
+		
+		display(allEmpty);
+	}
+	
 	
 	///
 	///		HELPING METHODS
@@ -178,18 +196,7 @@ public class LDisplay {
 		
 		ArrayList<Point> frameToDisplay = new ArrayList<Point>();
 		
-		Point[] allEmpty = new Point[64];
 		
-		int i = 0;
-		
-		for (int j = 0; j<8; j++){
-			
-			for (int k = 0; k<8; k++){
-				
-				allEmpty[i] = new Point(k, j);
-				i++;
-			}
-		}
 		
 		
 		boolean hasPixelsToDisplay = true;
@@ -205,7 +212,7 @@ public class LDisplay {
 			}
 			
 			
-			display(allEmpty, LColor.GREEN_OFF);
+			clear();
 			
 			if(!frameToDisplay.isEmpty()){
 				
