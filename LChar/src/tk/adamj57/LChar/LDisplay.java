@@ -150,6 +150,7 @@ public class LDisplay {
 		
 		for(Point[] frame : arrayOfFrames){
 			
+			clear();
 			display(frame, color);
 			try {
 				Thread.sleep(millis);
