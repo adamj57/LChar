@@ -131,6 +131,26 @@ public class LDisplay {
 		
 	}
 	
+	public void displayRawAnimation(Point[][] arrayOfFrames){
+		
+		scroll(convertToDisplayableArray(arrayOfFrames), 100, LColor.HIGH);
+	}
+	
+	public void displayRawAnimation(Point[][] arrayOfFrames, int color){
+		
+		scroll(convertToDisplayableArray(arrayOfFrames), 100, color);
+	}
+	
+	public void displayRawAnimation(Point[][] arrayOfFrames, long millis){
+		
+		scroll(convertToDisplayableArray(arrayOfFrames), millis, LColor.HIGH);
+	}
+	
+	public void displayRawAnimation(Point[][] arrayOfFrames, long millis, int color){
+		
+		scroll(convertToDisplayableArray(arrayOfFrames), millis, color);
+	}
+	
 	public void clear(){
 		
 		Point[] allEmpty = new Point[64];
