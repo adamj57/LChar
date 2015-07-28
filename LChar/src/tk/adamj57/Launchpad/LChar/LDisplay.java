@@ -1,4 +1,4 @@
-package tk.adamj57.LChar;
+package tk.adamj57.Launchpad.LChar;
 
 import java.awt.Point;
 import java.util.ArrayList;
