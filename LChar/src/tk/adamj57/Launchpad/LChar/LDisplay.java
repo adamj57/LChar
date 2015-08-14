@@ -184,7 +184,7 @@ public class LDisplay {
 	///		HELPING METHODS
 	///
 	
-	private Point[] convertToDisplayableArray(Point[][] arrayToConvert){
+	private Point[] convertToDisplayableArray(Point[][] arrayToConvert){ //to ma daæ poszczególne klatki do wyœwietlenia
 		
 		ArrayList<Point> convertedArray = new ArrayList<Point>();
 		
@@ -221,7 +221,7 @@ public class LDisplay {
 	}
 	
 	
-	private void scroll(Point[] arrayToScroll,  long millis, int color){
+	private void scroll(Point[] arrayToScroll, long millis, int color){ //to ma tylko wyœwietlaæ
 		
 		
 		ArrayList<Point> frameToDisplay = new ArrayList<Point>();
@@ -233,7 +233,7 @@ public class LDisplay {
 		
 		while(hasPixelsToDisplay){	
 		
-			for(Point pixel : arrayToScroll){
+			for(Point pixel : arrayToScroll){ //creating
 			
 				if(pixel.getX() >= 0 && pixel.getX() <= 7){
 				
@@ -242,16 +242,16 @@ public class LDisplay {
 			}
 			
 			
-			clear();
+			clear(); //display
 			
-			if(!frameToDisplay.isEmpty()){
+			if(!frameToDisplay.isEmpty()){ //display
 				
 				display(frameToDisplay.toArray(new Point[0]), color);
 				
 			}
 			
 		
-			try {
+			try { //display
 				Thread.sleep(millis);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
