@@ -64,7 +64,7 @@ public class LDisplay {
 	/// 	LCHAR[] METHODS
 	///
 	
-	public void display(LChar[] arrayToDisplay, long millis, int color){
+	public void display(LChar[] arrayToDisplay, long millis, int color) throws InterruptedException{
 		
 		Point[][] arrayToDisplayConverted = new Point[arrayToDisplay.length][];
 		
@@ -80,19 +80,19 @@ public class LDisplay {
 		
 	}
 	
-	public void display(LChar[] arrayToDisplay, long millis){
+	public void display(LChar[] arrayToDisplay, long millis) throws InterruptedException{
 		
 		display(arrayToDisplay, millis, LColor.HIGH);
 		
 	}
 	
-	public void display(LChar[] arrayToDisplay, int color){
+	public void display(LChar[] arrayToDisplay, int color) throws InterruptedException{
 		
 		display(arrayToDisplay, 100, color);
 		
 	}
 	
-	public void display(LChar[] arrayToDisplay){
+	public void display(LChar[] arrayToDisplay) throws InterruptedException{
 		
 		display(arrayToDisplay, 100, LColor.HIGH);
 		
@@ -102,7 +102,7 @@ public class LDisplay {
 	///		POINT[][] METHODS
 	///
 	
-	public void display(Point[][] arrayToDisplay, long millis, int color){
+	public void display(Point[][] arrayToDisplay, long millis, int color) throws InterruptedException{
 		
 		Point[] displayableArray = convertToDisplayableArray(arrayToDisplay);
 		
@@ -113,51 +113,47 @@ public class LDisplay {
 	
 	
 
-	public void display(Point[][] arrayToDisplay, long millis){
+	public void display(Point[][] arrayToDisplay, long millis) throws InterruptedException{
 		
 		display(arrayToDisplay, millis, LColor.HIGH);
 		
 	}
 	
-	public void display(Point[][] arrayToDisplay, int color){
+	public void display(Point[][] arrayToDisplay, int color) throws InterruptedException{
 		
 		display(arrayToDisplay, 100, color);
 		
 	}
 	
-	public void display(Point[][] arrayToDisplay){
+	public void display(Point[][] arrayToDisplay) throws InterruptedException{
 		
 		display(arrayToDisplay, 100, LColor.HIGH);
 		
 	}
 	
-	public void displayRawAnimation(Point[][] arrayOfFrames){
+	public void displayRawAnimation(Point[][] arrayOfFrames) throws InterruptedException{
 		
 		displayRawAnimation(arrayOfFrames, 100, LColor.HIGH);
 	}
 	
-	public void displayRawAnimation(Point[][] arrayOfFrames, int color){
+	public void displayRawAnimation(Point[][] arrayOfFrames, int color) throws InterruptedException{
 		
 		displayRawAnimation(arrayOfFrames, 100, color);
 	}
 	
-	public void displayRawAnimation(Point[][] arrayOfFrames, long millis){
+	public void displayRawAnimation(Point[][] arrayOfFrames, long millis) throws InterruptedException{
 		
 		displayRawAnimation(arrayOfFrames, millis, LColor.HIGH);
 	}
 	
-	public void displayRawAnimation(Point[][] arrayOfFrames, long millis, int color){
+	public void displayRawAnimation(Point[][] arrayOfFrames, long millis, int color) throws InterruptedException{
 		
 		for(Point[] frame : arrayOfFrames){
 			
 			clear();
 			display(frame, color);
-			try {
-				Thread.sleep(millis);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			Thread.sleep(millis);
+			
 		}
 	}
 	
@@ -195,12 +191,8 @@ public class LDisplay {
 			
 			Point [] copyOfCharacter = character.clone();
 			
-			if(copyOfCharacter == LChar.space.getPixelList()){
-				
-				System.out.println("Wykryto spacje!"); //debug
-				
-			}else{
-				
+			if(copyOfCharacter != LChar.space.getPixelList()){
+
 				for(Point point : copyOfCharacter){
 					
 					Point copyOfPoint = (Point) point.clone();
@@ -209,9 +201,7 @@ public class LDisplay {
 					
 					convertedArray.add(copyOfPoint);
 				}
-				
 			}
-			
 			i++;
 			
 		}
@@ -221,7 +211,7 @@ public class LDisplay {
 	}
 	
 	
-	private void scroll(Point[] arrayToScroll, long millis, int color){ //to ma tylko wyœwietlaæ
+	private void scroll(Point[] arrayToScroll, long millis, int color) throws InterruptedException{ //to ma tylko wyœwietlaæ
 		
 		
 		ArrayList<Point> frameToDisplay = new ArrayList<Point>();
@@ -249,21 +239,15 @@ public class LDisplay {
 				display(frameToDisplay.toArray(new Point[0]), color);
 				
 			}
-			
 		
-			try { //display
-				Thread.sleep(millis);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			Thread.sleep(millis); //display
+			
+			
+			frameToDisplay.clear(); //display
 			
 			
 			
-			frameToDisplay.clear();
-			
-			
-			
-			for(int j = 0; j < arrayToScroll.length; j++){
+			for(int j = 0; j < arrayToScroll.length; j++){ //creating
 			
 				Point changed = arrayToScroll[j];
 			
@@ -274,7 +258,7 @@ public class LDisplay {
 			
 			hasPixelsToDisplay = false;
 		
-			for(int j = 0; j < arrayToScroll.length; j++){
+			for(int j = 0; j < arrayToScroll.length; j++){ //display & creating
 			
 				if(arrayToScroll[j].getX() > -1){
 				
