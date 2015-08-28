@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import com.rngtng.launchpad.LColor;
 import com.rngtng.launchpad.Launchpad;
+import com.sun.org.apache.bcel.internal.generic.GotoInstruction;
 
 public class LDisplay {
 
@@ -107,7 +108,7 @@ public class LDisplay {
 		Point[] displayableArray = convertToDisplayableArray(arrayToDisplay);
 		
 		
-		scroll(displayableArray, millis, color);
+		displayRawAnimation(convertToFrames(displayableArray), millis, color);
 	}
 
 	
@@ -175,12 +176,11 @@ public class LDisplay {
 		display(allEmpty, LColor.GREEN_OFF);
 	}
 	
-	
 	///
 	///		HELPING METHODS
 	///
 	
-	private Point[] convertToDisplayableArray(Point[][] arrayToConvert){ //to ma daæ poszczególne klatki do wyœwietlenia
+	private Point[] convertToDisplayableArray(Point[][] arrayToConvert){ //to ma daæ poszczególne klatki do wyœwietlenia, ma zwracaæ Point[][], ¿eby móg³ byæ dawany do displayRawAnimation
 		
 		ArrayList<Point> convertedArray = new ArrayList<Point>();
 		
@@ -211,63 +211,48 @@ public class LDisplay {
 	}
 	
 	
-	private void scroll(Point[] arrayToScroll, long millis, int color) throws InterruptedException{ //to ma tylko wyœwietlaæ
+	private Point[][] convertToFrames(Point[] arrayPassed) { //to ma PRZESTAÆ ISTNIEÆ, ma byæ rozdzielone do convertToDisplayableArray i displayRawAnimation
 		
+		ArrayList<Point[]> frames = new ArrayList<Point[]>();
+		ArrayList<Point> frameToCreate = new ArrayList<Point>();
+		Point[] array = arrayPassed.clone();
+		boolean hasPixelsToAdd = true;
+		while(hasPixelsToAdd){	
 		
-		ArrayList<Point> frameToDisplay = new ArrayList<Point>();
-		
-		
-		
-		
-		boolean hasPixelsToDisplay = true;
-		
-		while(hasPixelsToDisplay){	
-		
-			for(Point pixel : arrayToScroll){ //creating
+			for(Point pixel : array){ //creating
 			
 				if(pixel.getX() >= 0 && pixel.getX() <= 7){
 				
-					frameToDisplay.add(pixel);
+					frameToCreate.add((Point)pixel.clone());
 				}
 			}
-			
-			
-			clear(); //display
-			
-			if(!frameToDisplay.isEmpty()){ //display
 				
-				display(frameToDisplay.toArray(new Point[0]), color);
+			frames.add((Point[]) frameToCreate.toArray(new Point[0]).clone());
 				
-			}
-		
-			Thread.sleep(millis); //display
+			frameToCreate.clear(); //creating
 			
 			
-			frameToDisplay.clear(); //display
+			for(int j = 0; j < array.length; j++){ //creating
 			
-			
-			
-			for(int j = 0; j < arrayToScroll.length; j++){ //creating
-			
-				Point changed = arrayToScroll[j];
+				Point changed = (Point) array[j].clone();
 			
 				changed.setLocation(changed.getX() - 1, changed.getY());
 			
-				arrayToScroll[j] = changed;
+				array[j] = (Point) changed.clone();
 			}
 			
-			hasPixelsToDisplay = false;
-		
-			for(int j = 0; j < arrayToScroll.length; j++){ //display & creating
+			hasPixelsToAdd = false;
+			loop:for(int j = 0; j < array.length; j++){ //display & creating
 			
-				if(arrayToScroll[j].getX() > -1){
+				if(array[j].getX() > -1){
 				
-					hasPixelsToDisplay = true;
+					hasPixelsToAdd = true;
+					break loop;
 					
 				}
 			}
-			
 		}
+		return frames.toArray(new Point[0][0]);
 	
 	}
 }
