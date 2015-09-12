@@ -10,7 +10,7 @@ import com.sun.org.apache.bcel.internal.generic.GotoInstruction;
 public class LDisplay {
 
 	private Launchpad lp;
-	
+	private Pixel[][] gridState = Pixel.blankGrid();
 	///
 	///		LAUNCHPAD MODIFICATION
 	///
@@ -52,7 +52,13 @@ public class LDisplay {
 		
 		for(Point pixel : character){
 			
-			lp.changeGrid(((int) pixel.getX()), ((int) pixel.getY()), color);
+			int x = (int) pixel.getX();
+			int y = (int) pixel.getY();
+			if (color != gridState[x][y].color){
+				gridState[x][y].color = color;
+				lp.changeGrid(x, y, color);
+			}
+			
 			
 		}
 	}

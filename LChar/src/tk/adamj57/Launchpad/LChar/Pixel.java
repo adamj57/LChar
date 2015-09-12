@@ -2,6 +2,8 @@ package tk.adamj57.Launchpad.LChar;
 
 import java.awt.Point;
 
+import com.rngtng.launchpad.LColor;
+
 public class Pixel extends Point {
 
 	private static final long serialVersionUID = -131403115409166489L;
@@ -60,5 +62,20 @@ public class Pixel extends Point {
 		}
 		
 		return toChangeClone;
+	}
+	public static Pixel[][] blankGrid(){
+		
+		Pixel[][] grid = new Pixel[8][8];
+		
+		for (int i = 0; i < 8; i++) {
+			
+			for (int j = 0; j < 8; j++) {
+				grid[i][j] = new Pixel(i, j, LColor.OFF);
+				
+			}
+			
+			
+		}
+		return grid;
 	}
 }
