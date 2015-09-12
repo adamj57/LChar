@@ -246,7 +246,6 @@ public enum LChar {
 			createPoint(4, 1), createPoint(4, 6), 
 			createPoint(5, 1), createPoint(5, 6), createPoint(6, 1), createPoint(6, 2), createPoint(6, 3), createPoint(6, 4), createPoint(6, 5)}, 
 			'J'),
-	//Tu skoñczy³em
 	K(new Point[]{
 			createPoint(2, 1), createPoint(2, 2), createPoint(2, 3), createPoint(2, 4), createPoint(2, 5), createPoint(2, 6), 
 			createPoint(3, 4), 
