@@ -63,7 +63,17 @@ public class LDisplay {
             lp.changeGrid(x, y, color);
         }
 	}
-	
+
+    public void display(Pixel[] character){
+        for (Pixel pixel : character){
+            if (pixel.isGridPixel){
+                lp.changeGrid(pixel.x, pixel.y, pixel.color);
+            }else{
+                lp.changeButton(pixel.button, pixel.color);
+            }
+        }
+    }
+
 	///
 	///		DISPLAY STRING WITH SCROLLING
 	///
